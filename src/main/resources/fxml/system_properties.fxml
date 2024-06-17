@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<GridPane alignment="CENTER" hgap="10.0" prefHeight="544.0" prefWidth="1024.0" vgap="10.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="site.barsukov.barcodefx.controllers.SystemPropertiesController">
+    <children>
+      <AnchorPane prefHeight="509.0" prefWidth="881.0">
+         <children>
+            <TableView fx:id="propList" layoutX="14.0" layoutY="37.0" prefHeight="352.0" prefWidth="606.0" AnchorPane.bottomAnchor="67.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="13.0" AnchorPane.topAnchor="37.0" />
+            <Button layoutX="156.0" layoutY="404.0" mnemonicParsing="false" onAction="#okButtonAction" text="Ок" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="156.0" />
+            <Button layoutX="408.0" layoutY="410.0" mnemonicParsing="false" onAction="#cancelButtonAction" text="Отмена" AnchorPane.bottomAnchor="19.0" AnchorPane.rightAnchor="157.0" />
+            <Label layoutX="305.0" layoutY="12.0" text="Системные настройки" AnchorPane.leftAnchor="305.0" AnchorPane.rightAnchor="305.0" />
+         </children>
+      </AnchorPane>
+    </children>
+    <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+    </rowConstraints>
+</GridPane>

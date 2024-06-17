@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="352.0" prefWidth="504.0" xmlns="http://javafx.com/javafx/11.0.11" xmlns:fx="http://javafx.com/fxml/1" fx:controller="site.barsukov.barcodefx.controllers.SaveCodesForEdoLiteController">
+   <children>
+      <Button layoutX="206.0" layoutY="299.0" mnemonicParsing="false" onAction="#okButtonAction" text="Сохранить" AnchorPane.leftAnchor="206.0" />
+      <TextField fx:id="fileNameTf" layoutX="160.0" layoutY="38.0" prefHeight="27.0" prefWidth="304.0" AnchorPane.leftAnchor="160.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="38.0" />
+      <Label layoutX="22.0" layoutY="43.0" text="Имя файла" AnchorPane.leftAnchor="22.0" AnchorPane.topAnchor="43.0" />
+      <RadioButton fx:id="kmRb" layoutX="128.0" layoutY="99.0" mnemonicParsing="false" text="КМ" AnchorPane.leftAnchor="128.0" AnchorPane.topAnchor="99.0" />
+      <RadioButton fx:id="aggregateRb" layoutX="203.0" layoutY="99.0" mnemonicParsing="false" text="Агрегаты" AnchorPane.rightAnchor="226.0" AnchorPane.topAnchor="99.0" />
+      <TextField fx:id="manualGroupingTf" layoutX="160.0" layoutY="181.0" prefHeight="27.0" prefWidth="254.0" promptText="5,15,22" AnchorPane.leftAnchor="160.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="181.0" />
+      <Label layoutX="22.0" layoutY="100.0" text="Тип кодов" AnchorPane.leftAnchor="22.0" AnchorPane.topAnchor="100.0" />
+      <Label layoutX="25.0" layoutY="186.0" text="Ручная группировка" AnchorPane.leftAnchor="22.0" />
+      <CheckBox fx:id="groupByGtin" layoutX="22.0" layoutY="144.0" mnemonicParsing="false" text="Группировать по gtin" AnchorPane.leftAnchor="22.0" />
+      <Label layoutX="22.0" layoutY="237.0" text="Начинать со строки" AnchorPane.bottomAnchor="102.0" AnchorPane.leftAnchor="22.0" />
+      <TextField fx:id="firstLineNumber" layoutX="160.0" layoutY="225.0" text="1" AnchorPane.bottomAnchor="102.0" />
+   </children>
+</AnchorPane>

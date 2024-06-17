@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<GridPane alignment="CENTER" hgap="10.0" prefHeight="238.0" prefWidth="445.0" vgap="10.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="site.barsukov.barcodefx.controllers.TabPropertiesController">
+    <children>
+      <AnchorPane>
+         <children>
+            <TableView fx:id="tabsList" layoutX="14.0" layoutY="20.0" prefHeight="158.0" prefWidth="418.0" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="13.0" AnchorPane.topAnchor="20.0" />
+            <Button layoutX="107.0" layoutY="197.0" mnemonicParsing="false" onAction="#okButtonAction" text="Ок" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="107.0" />
+            <Button layoutX="256.0" layoutY="197.0" mnemonicParsing="false" onAction="#cancelButtonAction" text="Отмена" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="121.0" />
+         </children>
+      </AnchorPane>
+    </children>
+    <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+    </rowConstraints>
+</GridPane>

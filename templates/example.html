@@ -1,0 +1,41 @@
+<body>
+<style type="text/css">
+
+    tr {
+        font-size: 45%; /* Размер шрифта */
+        font-family: Verdana, Arial, Helvetica, sans-serif; /* Семейство шрифта */
+        color: #336; /* Цвет текста */
+        /*text-align:left;*/
+        margin-left: 100px;
+
+    }
+</style>
+
+<table>
+    <tr>
+
+        <td>
+            <datamatrix height="62" width="62"/>
+        </td>
+        <td><img src="templates/crptLogo.png" width="110" height="50"></td>
+        <td>
+    <tr>
+        <td><b>GTIN:</b><gtin/>
+        </td>
+    <td>Размер:<v_web_90001690 type="DICT" use_key="false"/></td>
+    </tr>
+    <tr>
+        <td><b>SERIAL:</b><serial/>
+        </td>
+        <td>ТНВЭД: <V_CLASS_TNVED type="DICT" use_key="true"/></td>
+
+    </tr>
+    <tr>
+        <td>Страница: <page_number/> / <total_page_number/> </td>
+        <td>Дата публикации: <V_PUBLICATION_DATE type="DATE" date_format="dd-MM-yyyy"/></td>
+    </tr>
+    </td>
+    </tr>
+
+
+</table>

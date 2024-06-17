@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<GridPane alignment="CENTER" hgap="10.0" prefHeight="186.0" prefWidth="495.0" vgap="10.0" xmlns="http://javafx.com/javafx/11.0.11" xmlns:fx="http://javafx.com/fxml/1" fx:controller="site.barsukov.barcodefx.controllers.PrintPacksController">
+    <children>
+      <AnchorPane minHeight="200.0" minWidth="200.0" prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <Label layoutX="44.0" layoutY="45.0" text="Размер пачки для печати" AnchorPane.leftAnchor="44.0" AnchorPane.topAnchor="45.0" />
+            <CheckBox fx:id="endToEndNumbering" layoutX="44.0" layoutY="90.0" mnemonicParsing="false" text="Сквозная нумерация" AnchorPane.bottomAnchor="78.0" AnchorPane.leftAnchor="44.0" />
+            <TextField fx:id="packSize" layoutX="219.0" layoutY="40.0" prefHeight="18.0" prefWidth="79.0" text="5000" />
+            <ImageView fitHeight="27.0" fitWidth="30.0" layoutX="428.0" layoutY="40.0" onMouseClicked="#openAboutPackPrintAction" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="40.0">
+               <image>
+                  <Image url="@../question.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="351.0" layoutY="134.0" mnemonicParsing="false" onAction="#printButtonAction" prefHeight="27.0" prefWidth="104.0" text="Печатать" AnchorPane.bottomAnchor="25.0" AnchorPane.rightAnchor="40.0" />
+            <CheckBox fx:id="groupByGtin" layoutX="202.0" layoutY="105.0" mnemonicParsing="false" text="Группировать по gtin" AnchorPane.bottomAnchor="78.0" AnchorPane.leftAnchor="202.0" />
+         </children>
+      </AnchorPane>
+    </children>
+    <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+    </rowConstraints>
+</GridPane>

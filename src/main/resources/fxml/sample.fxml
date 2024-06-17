@@ -1,0 +1,493 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.CheckMenuItem?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.SplitMenuButton?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<GridPane alignment="CENTER" hgap="10.0" prefHeight="728.0" prefWidth="711.0" vgap="10.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="site.barsukov.barcodefx.controllers.Controller">
+  <children>
+      <MenuBar prefHeight="40.0" prefWidth="711.0">
+        <menus>
+            <Menu mnemonicParsing="false" text="Настройки">
+              <items>
+                  <MenuItem mnemonicParsing="false" onAction="#openCatalogProperties" text="Каталог товаров" />
+                <MenuItem mnemonicParsing="false" onAction="#openTabProperties" text="Вкладки" />
+                  <CheckMenuItem fx:id="updatesMenuItem" mnemonicParsing="false" onAction="#enableUpdateAction" text="Проверять обновления" />
+                  <MenuItem mnemonicParsing="false" onAction="#openPrintProperties" text="Печать" />
+                  <MenuItem mnemonicParsing="false" onAction="#openPrintingProfileButtonAction" text="Профили печати" visible="false" />
+                  <MenuItem mnemonicParsing="false" onAction="#openPickingServersButtonAction" text="Пикинг сервера" />
+                  <MenuItem mnemonicParsing="false" onAction="#openSystemProperties" text="Системные" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false" onAction="#exportPropertiesAction" text="Экспорт настроек" />
+                  <MenuItem mnemonicParsing="false" onAction="#importPropertiesAction" text="Импорт настроек" />
+              </items>
+            </Menu>
+          <Menu mnemonicParsing="false" text="Помощь">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#openTutorial" text="Инструкция" />
+                  <MenuItem mnemonicParsing="false" onAction="#openAbout" text="О программе" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="1">
+         <children>
+        <ImageView fx:id="logoImage" fitHeight="150.0" fitWidth="201.0" pickOnBounds="true" preserveRatio="true">
+          <image>
+            <Image url="@../logo.png" />
+          </image>
+               <HBox.margin>
+                  <Insets left="5.0" />
+               </HBox.margin>
+        </ImageView>
+            <VBox prefHeight="124.0" prefWidth="581.0">
+               <children>
+              <Label alignment="TOP_LEFT" prefHeight="44.0" prefWidth="532.0" text="Программа предназначена для бесплатного использования участниками маркировки." wrapText="true" />
+              <Label alignment="TOP_LEFT" prefHeight="42.0" prefWidth="532.0" text="Программа предоставляется как есть, автор не несет никакой ответственности за возможные финансовые или иные убытки при ее использовании." wrapText="true" />
+                  <Label prefHeight="24.0" prefWidth="522.0" text="Программа разрабатывается при информационной поддержке" wrapText="true" />
+                  <Hyperlink onAction="#openFortaLink" prefHeight="24.0" prefWidth="124.0" text="Альянса Форта" />
+                  <HBox prefHeight="60.0" prefWidth="581.0">
+                     <children>
+                    <Label prefHeight="30.0" prefWidth="130.0" text="Автор: Злой Ёж ©" />
+                        <Hyperlink onAction="#supportLinkAction" text="Поддержать проект" />
+                        <ImageView fitHeight="29.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../money.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </HBox>
+               </children>
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </VBox>
+         </children>
+      </HBox>
+      <BorderPane prefHeight="106.0" prefWidth="711.0" GridPane.rowIndex="2">
+         <left>
+        <SplitMenuButton fx:id="chooseFileButton" mnemonicParsing="false" onAction="#chooseFileButtonAction" prefHeight="44.0" prefWidth="153.0" text="Выбрать файл с кодами" wrapText="true" BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets left="20.0" />
+               </BorderPane.margin>
+            <items>
+                <MenuItem mnemonicParsing="false" onAction="#choosePickingOrderButtonAction" text="Выбрать пикинг ордер" />
+            </items>
+            </SplitMenuButton>
+         </left>
+         <right>
+            <Button fx:id="ssccButton" mnemonicParsing="false" onAction="#ssccButtonAction" prefHeight="44.0" prefWidth="86.0" text="SSCC" BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets right="35.0" />
+               </BorderPane.margin></Button>
+         </right>
+         <center>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <AnchorPane minWidth="210.0" prefHeight="59.0" prefWidth="306.0">
+                     <children>
+                        <Button fx:id="scanFileButton" layoutY="8.0" mnemonicParsing="false" onAction="#scanFileButtonAction" prefHeight="44.0" prefWidth="107.0" text="Сканировать коды в файл" wrapText="true" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="8.0" />
+                        <Button layoutX="224.0" layoutY="8.0" mnemonicParsing="false" onAction="#validationButtonAction" prefHeight="44.0" prefWidth="109.0" text="Валидировать XML файл" wrapText="true" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="8.0" />
+                     </children>
+                  </AnchorPane>
+               </children>
+            </HBox>
+         </center>
+      </BorderPane>
+      <VBox prefHeight="200.0" prefWidth="100.0" GridPane.rowIndex="3">
+         <children>
+        <Label fx:id="chooseFileLabel" text="Выбранный файл:">
+               <VBox.margin>
+                  <Insets left="20.0" />
+               </VBox.margin></Label>
+        <Label fx:id="fileNameLabel" prefHeight="17.0" prefWidth="669.0" text="Файл не выбран">
+               <VBox.margin>
+                  <Insets left="20.0" top="5.0" />
+               </VBox.margin></Label>
+         </children>
+      </VBox>
+      <VBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="4">
+         <children>
+            <Separator prefWidth="200.0" />
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
+               <children>
+              <TextField fx:id="rangeFrom" disable="true" prefHeight="25.0" prefWidth="60.0" text="1">
+                     <HBox.margin>
+                        <Insets left="20.0" top="10.0" />
+                     </HBox.margin>
+                  </TextField>
+              <Label prefHeight="32.0" prefWidth="34.0" text="  -">
+                <font>
+                  <Font size="23.0" />
+                </font>
+              </Label>
+              <TextField fx:id="rangeTo" disable="true" prefHeight="25.0" prefWidth="60.0" text="5">
+                     <HBox.margin>
+                        <Insets top="10.0" />
+                     </HBox.margin>
+                  </TextField>
+              <CheckBox fx:id="rangeCheckBox" mnemonicParsing="false" onAction="#rangeCheckBoxAction" text="Диапазон строк" textAlignment="CENTER">
+                     <HBox.margin>
+                        <Insets left="10.0" top="10.0" />
+                     </HBox.margin></CheckBox>
+                  <ComboBox fx:id="category" prefWidth="150.0">
+                     <HBox.margin>
+                        <Insets left="150.0" />
+                     </HBox.margin>
+                  </ComboBox>
+               </children>
+            </HBox>
+            <Separator prefWidth="200.0" />
+         </children>
+      </VBox>
+  <TabPane fx:id="tabPaneElement" disable="true" prefHeight="218.0" prefWidth="669.0" tabClosingPolicy="UNAVAILABLE" GridPane.rowIndex="5">
+    <tabs>
+      <Tab fx:id="printTab" text="Печать">
+        <content>
+          <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+            <children>
+                        <BorderPane layoutX="6.0" layoutY="14.0" minHeight="15.0" prefHeight="226.0" prefWidth="697.0" AnchorPane.bottomAnchor="23.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="21.0">
+                           <top>
+                              <Label text="Генерирование PDF с DataMatrix кодов маркировки" BorderPane.alignment="CENTER_LEFT">
+                                 <BorderPane.margin>
+                                    <Insets bottom="10.0" />
+                                 </BorderPane.margin>
+                              </Label>
+                           </top>
+                           <left>
+                              <VBox prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                                 <children>
+                                    <HBox prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                <Label text="Размер этикетки" />
+                                       </children>
+                                    </HBox>
+                                    <HBox prefHeight="105.0" prefWidth="188.0">
+                                       <children>
+                                <TextField fx:id="width" disable="true" prefHeight="27.0" prefWidth="60.0" promptText="Ширина" text="164" />
+                                <Label text="X" />
+                                <TextField fx:id="height" disable="true" prefHeight="27.0" prefWidth="60.0" promptText="Высота" text="113" />
+                                <Label prefWidth="99.0" text="pt." textFill="RED">
+                                             <tooltip>
+                                                <Tooltip text="1 mm равен приблизительно 2,835 pt" />
+                                             </tooltip>
+                                          </Label>
+                                       </children>
+                                       <padding>
+                                          <Insets top="20.0" />
+                                       </padding>
+                                    </HBox>
+                                    <HBox prefHeight="100.0" prefWidth="200.0">
+                                       <children>
+                                          <CheckBox fx:id="printMarkNumber" mnemonicParsing="false" text="Нумеровать" />
+                                          <TextField fx:id="markNumberStart" disable="true" prefHeight="27.0" prefWidth="64.0" text="1">
+                                             <tooltip>
+                                                <Tooltip text="С какого номера начинать" />
+                                             </tooltip>
+                                             <HBox.margin>
+                                                <Insets bottom="5.0" left="20.0" />
+                                             </HBox.margin>
+                                          </TextField>
+                                       </children>
+                                       <padding>
+                                          <Insets top="20.0" />
+                                       </padding>
+                                    </HBox>
+                                    <VBox prefHeight="200.0" prefWidth="100.0">
+                                       <children>
+                                <Label text="Текст на этикетке">
+                                             <VBox.margin>
+                                                <Insets bottom="5.0" />
+                                             </VBox.margin></Label>
+                                <TextArea fx:id="userLabelText" prefHeight="32.0" prefWidth="147.0" />
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets top="20.0" />
+                                       </VBox.margin>
+                                    </VBox>
+                                 </children>
+                              </VBox>
+                           </left>
+                           <center>
+                              <VBox prefHeight="200.0" prefWidth="50.0" BorderPane.alignment="CENTER">
+                                 <children>
+                                    <HBox prefHeight="60.0" prefWidth="317.0">
+                                       <children>
+                                <RadioButton fx:id="sizeA4" mnemonicParsing="false" onAction="#sizeA4Selection" selected="true" text="А4">
+                                             <toggleGroup>
+                                    <ToggleGroup fx:id="printer" />
+                                             </toggleGroup>
+                                          </RadioButton>
+                                <RadioButton fx:id="sizeTermoPrinter" mnemonicParsing="false" onAction="#termoprinterSelection" text="Термопринтер" toggleGroup="$printer">
+                                             <HBox.margin>
+                                                <Insets left="10.0" />
+                                             </HBox.margin>
+                                </RadioButton>
+                                       </children>
+                                    </HBox>
+                                    <VBox prefHeight="173.0" prefWidth="181.0">
+                                       <children>
+                                <RadioButton fx:id="isHorizontal" mnemonicParsing="false" selected="true" text="Горизонтально">
+                                             <toggleGroup>
+                                    <ToggleGroup fx:id="orientation" />
+                                             </toggleGroup>
+                                </RadioButton>
+                                <RadioButton fx:id="isVertical" mnemonicParsing="false" text="Вертикально" toggleGroup="$orientation">
+                                             <VBox.margin>
+                                                <Insets top="10.0" />
+                                             </VBox.margin>
+                                          </RadioButton>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </VBox>
+                           </center>
+                           <right>
+                              <VBox prefHeight="200.0" prefWidth="300.0" BorderPane.alignment="CENTER">
+                                 <children>
+                                    <HBox prefHeight="38.0" prefWidth="100.0">
+                                       <children>
+                                          <Label text="Шаблон:" />
+                                          <ImageView fitHeight="18.0" fitWidth="30.0" onMouseClicked="#templatesExplanation" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../question.png" />
+                                             </image>
+                                             <HBox.margin>
+                                                <Insets left="5.0" />
+                                             </HBox.margin>
+                                          </ImageView>
+                                       </children>
+                                    </HBox>
+                                    <VBox minHeight="15.0" prefHeight="164.0" prefWidth="163.0">
+                                       <children>
+                                          <ComboBox fx:id="templatesList" disable="true" prefHeight="27.0" prefWidth="183.0">
+                                             <VBox.margin>
+                                                <Insets top="10.0" />
+                                             </VBox.margin></ComboBox>
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="BOTTOM_RIGHT" minHeight="10.0" prefHeight="200.0" prefWidth="100.0" VBox.vgrow="NEVER">
+                                       <children>
+                                          <SplitMenuButton alignment="TOP_LEFT" mnemonicParsing="false" onAction="#printDatamatrixButtonAction" prefHeight="27.0" prefWidth="224.0" text="Создать pdf с Datamatrix">
+                                            <items>
+                                              <MenuItem mnemonicParsing="false" onAction="#printDatamatrixInPacksAction" text="Печатать пачками" />
+                                            </items>
+                                          </SplitMenuButton>
+                                       </children></VBox>
+                                 </children>
+                              </VBox>
+                           </right>
+                        </BorderPane>
+            </children>
+          </AnchorPane>
+        </content>
+      </Tab>
+      <Tab fx:id="oborotTab" text="В оборот остатки">
+        <content>
+          <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+            <children>
+              <Label layoutX="29.0" layoutY="21.0" text="Генерирование xml для ввода остатков в оборот" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="21.0" />
+              <TextField fx:id="userINNText" layoutX="29.0" layoutY="74.0" promptText="ИНН участника" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="54.0" />
+              <Button fx:id="generateXMLButton" disable="true" layoutX="263.0" layoutY="74.0" mnemonicParsing="false" onAction="#generateXML" prefHeight="25.0" prefWidth="161.0" text="Сгенерировать xml" AnchorPane.leftAnchor="263.0" AnchorPane.topAnchor="54.0" />
+            </children>
+          </AnchorPane>
+        </content>
+      </Tab>
+        <Tab fx:id="vOborotCrossborder" text="В оборот трансграничный">
+            <content>
+                <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                    <children>
+                        <Button disable="false" layoutX="536.0" layoutY="222.0" mnemonicParsing="false" onAction="#vOborotImportCrossborderButtonAction" prefHeight="25.0" prefWidth="161.0" text="Сгенерировать xml" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="14.0" />
+                        <ListView fx:id="crossborderList" layoutX="45.0" layoutY="32.0" prefHeight="195.0" prefWidth="456.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="186.0" AnchorPane.topAnchor="46.0" />
+                        <Label layoutX="14.0" layoutY="21.0" text="Генерировать xml для ввода в оборот при трансграничной торговле" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="21.0" />
+                        <ImageView fitHeight="25.0" fitWidth="20.0" layoutX="465.0" layoutY="20.0" onMouseClicked="#openAboutCrossborderAction" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@../question.png" />
+                        </image>
+                        </ImageView>
+                    </children>
+                </AnchorPane>
+            </content>
+        </Tab>
+            <Tab fx:id="vOborotImportFtsTab" text="В оборот импорт ФТС">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="7.0" layoutY="20.0" text="Генерирование xml для ввода в оборот при импорте ФТС" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="21.0" />
+                        <TextField fx:id="vOborotImportFtsINN" layoutX="7.0" layoutY="49.0" prefHeight="27.0" prefWidth="209.0" promptText="ИНН участника" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="49.0" />
+                        <TextField fx:id="vOborotImportFtsDtNum" layoutX="7.0" layoutY="91.0" prefHeight="27.0" prefWidth="209.0" promptText="Регистрационный номер ДТ" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="91.0" />
+                        <DatePicker fx:id="vOborotImportFtsDtDate" layoutX="7.0" layoutY="133.0" prefHeight="27.0" prefWidth="211.0" promptText="Дата регистрации ДТ" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="133.0" />
+                        <Button layoutX="285.0" layoutY="133.0" mnemonicParsing="false" onAction="#vOborotImportFtsButtonAction" text="Сгенерировать xml" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+      <Tab fx:id="shipmentTab" text="Отгрузка">
+        <content>
+          <AnchorPane id="Content" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0">
+            <children>
+                        <Label layoutX="14.0" layoutY="12.0" text="Генерирование xml для отгрузки кодов" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="21.0" />
+                        <Button fx:id="generateXMLShipmentButton" disable="true" layoutX="563.0" layoutY="222.0" mnemonicParsing="false" onAction="#generateXMLShipment" prefHeight="27.0" prefWidth="114.0" text="Сохранить" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="34.0" />
+                        <ListView fx:id="shipmentList" layoutX="14.0" layoutY="47.0" prefHeight="164.0" prefWidth="511.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="186.0" AnchorPane.topAnchor="46.0" />
+            </children>
+          </AnchorPane>
+        </content>
+      </Tab>
+      <Tab fx:id="acceptanceTab" text="Приемка">
+        <content>
+          <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                       <TextField fx:id="acceptanceReceiverINN" layoutX="14.0" layoutY="37.0" prefWidth="128.0" promptText="ИНН получателя" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="37.0" />
+                       <TextField fx:id="acceptanceSenderINN" layoutX="14.0" layoutY="73.0" prefHeight="20.9609375" prefWidth="128.0" promptText="ИНН отправителя" />
+<!--                             <CheckBox fx:id="shipmentNotUOT" layoutX="182.0" layoutY="148.0" mnemonicParsing="false" text="Отгрузка не УОТ-у" />-->
+                       <DatePicker fx:id="acceptanceDate" layoutX="14.0" layoutY="109.0" prefHeight="25.0" prefWidth="129.0" promptText="Дата отгрузки" />
+                       <TextField fx:id="acceptanceDocNum" layoutX="182.0" layoutY="37.0" prefHeight="25.0" prefWidth="154.0" promptText="Документ отгрузки №" AnchorPane.leftAnchor="182.0" AnchorPane.topAnchor="37.0" />
+                       <DatePicker fx:id="acceptanceDocDate" layoutX="182.0" layoutY="73.0" prefHeight="25.0" prefWidth="154.0" promptText="Дата документа" AnchorPane.leftAnchor="182.0" AnchorPane.topAnchor="73.0" />
+                       <ComboBox fx:id="acceptanceType" editable="true" layoutX="182.0" layoutY="109.0" prefHeight="25.0" prefWidth="155.0" promptText="Тип отгрузки" AnchorPane.leftAnchor="182.0" AnchorPane.topAnchor="109.0" />
+                       <Label layoutX="14.0" layoutY="12.0" text="Генерирование xml для отгрузки кодов" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="12.0" />
+                        <TextField fx:id="shipmentId" layoutX="183.0" layoutY="144.0" prefHeight="25.0" prefWidth="153.0" promptText="id отгрузки" AnchorPane.leftAnchor="183.0" AnchorPane.topAnchor="144.0">
+                           <tooltip>
+                              <Tooltip text="snipmentId - id документа отгрузки" />
+                           </tooltip>
+                        </TextField>
+                       <Button fx:id="generateXMLAcceptanceButton" disable="true" layoutX="356.0" layoutY="144.0" mnemonicParsing="false" onAction="#generateXMLAcceptance" prefHeight="27.0" prefWidth="107.0" text="Сохранить" AnchorPane.leftAnchor="356.0" AnchorPane.topAnchor="144.0" />
+                     </children>
+                  </AnchorPane>
+        </content>
+      </Tab>
+            <Tab fx:id="remarkTab" text="Перемаркировка">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ListView fx:id="remarkList" layoutX="31.0" layoutY="14.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="186.0" AnchorPane.topAnchor="46.0" />
+                        <Button layoutX="558.0" layoutY="222.0" mnemonicParsing="false" onAction="#remarkButtonAction" text="Сгенерировать xml" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="14.0" />
+                        <Label layoutX="38.0" layoutY="14.0" text="Генерирование xml для перемаркировки товара" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="21.0" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab fx:id="cancelTab" text="Выбытие">
+              <content>
+                <AnchorPane fx:id="withdrawHelp" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ListView fx:id="withdrawList" layoutX="14.0" layoutY="41.0" prefHeight="188.0" prefWidth="546.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="151.0" AnchorPane.topAnchor="46.0" />
+                        <Button fx:id="generateXMLWithdrawButton" layoutX="581.0" layoutY="221.0" mnemonicParsing="false" onAction="#generateXMLWithdrawButtonAction" prefHeight="28.0" prefWidth="107.0" text="Сохранить" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="23.0" />
+                        <Label layoutX="16.0" layoutY="6.0" text="Генерирование xml для выбытия кодов" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="21.0" />
+                        <ImageView fitHeight="17.0" fitWidth="20.0" layoutX="279.0" layoutY="7.0" onMouseClicked="#withdrawExplanation" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="21.0">
+                           <image>
+                              <Image url="@../question.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab fx:id="aggregationTab" text="Агрегация">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                         <TextField fx:id="aggregationSccCodeText" layoutX="14.0" layoutY="14.0" promptText="SSCC код" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="21.0" />
+                         <TextField fx:id="aggregationINN" layoutX="14.0" layoutY="57.0" promptText="ИНН организации" AnchorPane.leftAnchor="14.0" />
+                        <TextField fx:id="aggregationOrgName" layoutX="14.0" layoutY="95.0" promptText="Название организации" AnchorPane.leftAnchor="14.0" />
+                        <TextField fx:id="aggregationDocNum" layoutX="14.0" layoutY="135.0" promptText="Номер документа" AnchorPane.leftAnchor="14.0" />
+                        <Button layoutX="303.0" layoutY="135.0" mnemonicParsing="false" onAction="#aggregationSaveButtonAction" text="Сохранить" />
+                        <ImageView fitHeight="18.0" fitWidth="20.0" layoutX="236.0" layoutY="26.0" onMouseClicked="#ssccAbout" pickOnBounds="true" preserveRatio="true" AnchorPane.topAnchor="26.0">
+                           <image>
+                              <Image url="@../question.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="18.0" fitWidth="20.0" layoutX="192.0" layoutY="98.0" onMouseClicked="#nameAbout" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../question.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="18.0" fitWidth="20.0" layoutX="193.0" layoutY="140.0" onMouseClicked="#aggregationDocNum" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../question.png" />
+                           </image>
+                        </ImageView>
+                        <CheckBox fx:id="aggregationIpCB" layoutX="14.0" layoutY="179.0" mnemonicParsing="false" text="Индивидуальный предприниматель" AnchorPane.leftAnchor="14.0" />
+                        <Button layoutX="194.0" layoutY="21.0" mnemonicParsing="false" onAction="#aggregationClearSsccButtonAction" prefHeight="18.0" prefWidth="14.0" text="X" AnchorPane.leftAnchor="194.0" AnchorPane.topAnchor="21.0" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab fx:id="productionTab" text="Производство РФ">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="14.0" layoutY="23.0" text="Создание файла xml для ввода в оборот при производстве в РФ" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="21.0" />
+                        <ListView fx:id="productionList" layoutX="14.0" layoutY="49.0" prefHeight="183.0" prefWidth="553.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="144.0" AnchorPane.topAnchor="49.0" />
+                        <Button layoutX="598.0" layoutY="205.0" mnemonicParsing="false" onAction="#generateXMLProduction" text="Сохранить" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="26.0" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab fx:id="withdrawTab" text="Списание">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ListView fx:id="cancellationList" layoutX="10.0" layoutY="46.0" prefHeight="199.0" prefWidth="591.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="110.0" AnchorPane.topAnchor="46.0" />
+                        <Label layoutX="10.0" layoutY="6.0" text="Создание xml для списание нанесенных/ненанесенных кодов" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="21.0" />
+                        <Button layoutX="632.0" layoutY="217.0" mnemonicParsing="false" onAction="#cancellationButtonAction" text="Ок" AnchorPane.bottomAnchor="19.0" AnchorPane.rightAnchor="43.0" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab fx:id="sverkaTab" text="Сверка">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="9.0" layoutY="10.0" text="Выберите второй файл с кодами для сверки:" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="21.0" />
+                        <Label fx:id="comparedFileLabel" layoutX="14.0" layoutY="44.0" text="Файл не выбран" AnchorPane.leftAnchor="14.0" />
+                        <TextArea fx:id="comparedTextArea" editable="false" layoutX="7.0" layoutY="64.0" prefHeight="180.0" prefWidth="532.0" wrapText="true" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="165.0" AnchorPane.topAnchor="64.0" />
+                        <Button layoutX="594.0" layoutY="209.0" mnemonicParsing="false" onAction="#comparedButtonAction" text="Выбрать" AnchorPane.bottomAnchor="27.0" AnchorPane.rightAnchor="44.0" />
+                        <CheckBox fx:id="ignoreCryptoTail" layoutX="558.0" layoutY="53.0" mnemonicParsing="false" prefHeight="71.0" prefWidth="139.0" text="Игнорировать крипто хвост" wrapText="true" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="53.0" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+    </tabs>
+  </TabPane>
+  </children>
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+  </columnConstraints>
+  <rowConstraints>
+      <RowConstraints maxHeight="27.0" minHeight="27.0" prefHeight="27.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="172.0" minHeight="172.0" prefHeight="172.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="60.0" minHeight="60.0" prefHeight="60.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="59.0" minHeight="59.0" prefHeight="59.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="65.0" minHeight="64.0" prefHeight="64.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="609.0" minHeight="10.0" prefHeight="357.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+</GridPane>

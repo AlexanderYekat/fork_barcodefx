@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<GridPane alignment="CENTER" hgap="10.0" prefHeight="368.0" prefWidth="277.0" vgap="10.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="site.barsukov.barcodefx.controllers.SsccController">
+    <children>
+        <Pane prefHeight="470.0" prefWidth="340.0" GridPane.columnIndex="0" GridPane.rowIndex="0">
+         <children>
+            <Button layoutX="19.0" layoutY="326.0" mnemonicParsing="false" onAction="#generateButtonAction" text="Генерировать" />
+            <Label layoutX="18.0" layoutY="128.0" text="Начать с серийного номера:" />
+            <TextField fx:id="prefix" layoutX="18.0" layoutY="90.0" prefHeight="27.0" prefWidth="192.0" promptText="Префикс предприяития" />
+            <TextField fx:id="serialStart" layoutX="18.0" layoutY="152.0" prefHeight="27.0" prefWidth="192.0" />
+            <Label layoutX="20.0" layoutY="17.0" text="Последний сгенерированный номер:" />
+            <Label fx:id="lastGeneratedSerialLabel" layoutX="20.0" layoutY="39.0" prefHeight="17.0" prefWidth="192.0" text="0" />
+            <TextField fx:id="numberOfLabels" layoutX="18.0" layoutY="218.0" prefHeight="27.0" prefWidth="192.0" />
+            <Label layoutX="19.0" layoutY="64.0" text="Префикс предприятия:" />
+            <Label layoutX="19.0" layoutY="192.0" text="Количество для генерации:" />
+            <ComboBox fx:id="extension" layoutX="18.0" layoutY="279.0" prefWidth="150.0" />
+            <Label layoutX="20.0" layoutY="256.0" text="Расширение:" />
+         </children>
+        </Pane>
+    </children>
+    <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+    </rowConstraints>
+</GridPane>

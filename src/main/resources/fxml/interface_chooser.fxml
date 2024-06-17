@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<GridPane alignment="CENTER" hgap="10.0" prefHeight="445.0" prefWidth="722.0" vgap="10.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="site.barsukov.barcodefx.controllers.InterfaceChooserController">
+    <children>
+      <AnchorPane prefHeight="450.0" prefWidth="813.0">
+         <children>
+            <Label layoutX="478.0" layoutY="18.0" text="Сайт программы:" AnchorPane.rightAnchor="131.0" AnchorPane.topAnchor="18.0" />
+            <Hyperlink layoutX="642.0" layoutY="14.0" onAction="#openHomePage" text="Sourceforge.net" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0" />
+            <Label layoutX="181.0" layoutY="63.0" prefHeight="40.0" prefWidth="361.0" text="Выберите интерфейс" AnchorPane.leftAnchor="181.0" AnchorPane.rightAnchor="180.0" AnchorPane.topAnchor="63.0">
+               <font>
+                  <Font name="Arial" size="34.0" />
+               </font>
+            </Label>
+            <Button fx:id="openClassicInterfaceButton" layoutX="131.0" layoutY="132.0" mnemonicParsing="false" onAction="#openClassicInterfaceButtonAction" prefHeight="122.0" prefWidth="496.0" text="Классический" AnchorPane.leftAnchor="131.0" AnchorPane.rightAnchor="139.0" AnchorPane.topAnchor="132.0">
+               <font>
+                  <Font size="34.0" />
+               </font>
+            </Button>
+            <Button fx:id="openScannerInterfaceButton" layoutX="131.0" layoutY="273.0" mnemonicParsing="false" onAction="#openScannerInterfaceButtonAction" prefHeight="122.0" prefWidth="496.0" text="Сканер" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="131.0" AnchorPane.rightAnchor="139.0">
+               <font>
+                  <Font size="49.0" />
+               </font>
+            </Button>
+            <CheckBox fx:id="useAsDefault" layoutX="131.0" layoutY="413.0" mnemonicParsing="false" text="Использовать по умолчанию" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="131.0" />
+         </children>
+      </AnchorPane>
+    </children>
+    <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+    </rowConstraints>
+</GridPane>

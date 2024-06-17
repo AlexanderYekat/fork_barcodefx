@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<GridPane alignment="CENTER" hgap="10.0" prefHeight="781.0" prefWidth="969.0" vgap="10.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="site.barsukov.barcodefx.controllers.PickingServersController">
+    <children>
+      <AnchorPane prefHeight="684.0" prefWidth="790.0">
+         <children>
+            <ListView fx:id="serversList" layoutX="20.0" layoutY="24.0" prefHeight="680.0" prefWidth="392.0" AnchorPane.bottomAnchor="77.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="24.0" />
+            <RadioButton fx:id="zcloudRb" disable="false" layoutX="448.0" layoutY="111.0" mnemonicParsing="false" text="Z_Cloud" />
+            <RadioButton fx:id="folderRb" layoutX="453.0" layoutY="224.0" mnemonicParsing="false" selected="true" text="Папка" />
+            <RadioButton fx:id="ftpRb" layoutX="453.0" layoutY="325.0" mnemonicParsing="false" text="FTP" />
+            <Button layoutX="481.0" layoutY="653.0" mnemonicParsing="false" onAction="#saveButtonAction" text="Сохранить" AnchorPane.bottomAnchor="101.0" />
+            <Button layoutX="237.0" layoutY="719.0" mnemonicParsing="false" onAction="#deleteButtonAction" text="Удалить" AnchorPane.bottomAnchor="35.0" />
+            <TextField fx:id="serverFolderTF" layoutX="455.0" layoutY="277.0" prefHeight="27.0" prefWidth="324.0" />
+            <Button layoutX="804.0" layoutY="276.0" mnemonicParsing="false" onAction="#chooseFolderButtonAction" text="..." />
+            <TextField fx:id="zcloudLoginTF" disable="true" layoutX="453.0" layoutY="164.0" />
+            <TextField fx:id="ftpPathTf" disable="true" layoutX="453.0" layoutY="379.0" prefHeight="27.0" prefWidth="301.0" />
+            <TextField fx:id="ftpPortTf" disable="true" layoutX="786.0" layoutY="379.0" prefHeight="18.0" prefWidth="37.0" />
+            <TextField fx:id="ftpLoginTf" disable="true" layoutX="455.0" layoutY="449.0" />
+            <Label layoutX="453.0" layoutY="140.0" text="Логин" />
+            <Label layoutX="661.0" layoutY="140.0" text="Пароль" />
+            <Label layoutX="455.0" layoutY="250.0" text="Путь к сетевой папке" />
+            <Label layoutX="453.0" layoutY="354.0" text="Адрес сервера" />
+            <Label layoutX="455.0" layoutY="429.0" text="Логин" />
+            <Label layoutX="661.0" layoutY="429.0" text="Пароль" />
+            <Label layoutX="788.0" layoutY="354.0" text="Порт" />
+            <PasswordField fx:id="ftpPasswordTf" disable="true" layoutX="661.0" layoutY="449.0" prefHeight="27.0" prefWidth="161.0" />
+            <PasswordField fx:id="zcloudPasswordTF" disable="true" layoutX="658.0" layoutY="164.0" />
+            <TextField fx:id="serverNameTF" layoutX="448.0" layoutY="54.0" prefHeight="27.0" prefWidth="380.0" />
+            <Label layoutX="448.0" layoutY="26.0" text="Имя сервера" />
+            <Button layoutX="87.0" layoutY="719.0" mnemonicParsing="false" onAction="#addServerButtonAction" text="Добавить" AnchorPane.bottomAnchor="35.0" />
+            <Button fx:id="testFtpConnectionButton" disable="true" layoutX="456.0" layoutY="496.0" mnemonicParsing="false" onAction="#testFtpConnectionButtonAction" text="Проверить соединение" />
+            <CheckBox fx:id="activeFtpMode" disable="true" layoutX="661.0" layoutY="501.0" mnemonicParsing="false" text="Активный режим" />
+         </children>
+      </AnchorPane>
+    </children>
+    <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+    </rowConstraints>
+</GridPane>

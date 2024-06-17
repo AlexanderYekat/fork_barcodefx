@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="546.0" prefWidth="492.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="site.barsukov.barcodefx.controllers.PickingOrderAddController">
+   <children>
+      <Button layoutX="155.0" layoutY="479.0" mnemonicParsing="false" onAction="#okButtonAction" text="Ок" AnchorPane.leftAnchor="155.0" AnchorPane.topAnchor="479.0" />
+      <Button layoutX="301.0" layoutY="479.0" mnemonicParsing="false" onAction="#cancelButtonAction" text="Отмена" AnchorPane.rightAnchor="123.0" AnchorPane.topAnchor="479.0" />
+      <TextField fx:id="fileNameTf" disable="true" editable="false" layoutX="128.0" layoutY="78.0" prefHeight="27.0" prefWidth="254.0" AnchorPane.leftAnchor="128.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="78.0" />
+      <TextField fx:id="statusTf" layoutX="128.0" layoutY="144.0" prefHeight="27.0" prefWidth="254.0" AnchorPane.leftAnchor="128.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="144.0" />
+      <TextField fx:id="commentTf" layoutX="128.0" layoutY="203.0" prefHeight="27.0" prefWidth="254.0" AnchorPane.leftAnchor="128.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="203.0" />
+      <ComboBox fx:id="goodCategoryCb" layoutX="128.0" layoutY="263.0" prefHeight="27.0" prefWidth="254.0" promptText="Товарная группа" AnchorPane.leftAnchor="128.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="263.0" />
+      <Label layoutX="44.0" layoutY="23.0" text="Добавление пикинг ордера в локальное хранилище" AnchorPane.leftAnchor="44.0" AnchorPane.rightAnchor="44.0" AnchorPane.topAnchor="23.0" />
+      <Label layoutX="22.0" layoutY="83.0" text="Файл" AnchorPane.leftAnchor="22.0" AnchorPane.topAnchor="83.0" />
+      <Label layoutX="22.0" layoutY="149.0" text="Статус" AnchorPane.leftAnchor="22.0" AnchorPane.topAnchor="149.0" />
+      <Label layoutX="16.0" layoutY="208.0" text="Комментарий" AnchorPane.leftAnchor="22.0" AnchorPane.topAnchor="208.0" />
+      <RadioButton fx:id="kmRb" layoutX="128.0" layoutY="318.0" mnemonicParsing="false" text="КМ" AnchorPane.leftAnchor="128.0" AnchorPane.topAnchor="318.0" />
+      <RadioButton fx:id="kiRb" layoutX="258.0" layoutY="319.0" mnemonicParsing="false" text="КИ" AnchorPane.topAnchor="318.0" />
+      <RadioButton fx:id="aggregateRb" layoutX="369.0" layoutY="318.0" mnemonicParsing="false" text="Агрегат" AnchorPane.rightAnchor="48.0" AnchorPane.topAnchor="318.0" />
+      <TextField fx:id="aggregationCodeTextField" layoutX="128.0" layoutY="364.0" prefHeight="27.0" prefWidth="286.0" promptText="Код агрегата" AnchorPane.leftAnchor="128.0" AnchorPane.rightAnchor="78.0" AnchorPane.topAnchor="364.0" />
+      <Button layoutX="423.0" layoutY="364.0" mnemonicParsing="false" onAction="#generateSsccButtonAction" prefHeight="27.0" prefWidth="28.0" text="+" visible="false" AnchorPane.rightAnchor="41.0" AnchorPane.topAnchor="364.0" />
+      <Label layoutX="30.0" layoutY="319.0" text="Тип ордера" AnchorPane.leftAnchor="22.0" AnchorPane.topAnchor="319.0" />
+      <ComboBox fx:id="printingProfileComboBox" layoutX="128.0" layoutY="410.0" prefHeight="27.0" prefWidth="324.0" visible="false" AnchorPane.leftAnchor="128.0" AnchorPane.rightAnchor="40.0" AnchorPane.topAnchor="410.0" />
+      <CheckBox fx:id="printComboBox" layoutX="24.0" layoutY="415.0" mnemonicParsing="false" text="Печать" visible="false" AnchorPane.leftAnchor="22.0" AnchorPane.topAnchor="415.0" />
+      <Label layoutX="22.0" layoutY="369.0" text="Код агрегата" AnchorPane.leftAnchor="22.0" AnchorPane.topAnchor="369.0" />
+   </children>
+</AnchorPane>

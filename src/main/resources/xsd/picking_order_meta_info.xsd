@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="pickingOrder">
+        <xs:complexType>
+            <xs:annotation>
+                <xs:documentation>Метаданные в формате zms</xs:documentation>
+            </xs:annotation>
+            <xs:sequence>
+                <xs:element name="file_name" type="xs:string" minOccurs="0">
+                    <xs:annotation>
+                        <xs:documentation>Имя файла с кодами (имя с расширением). Файл с кодами должен быть в той же
+                            папке, что и метаданные.
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element name="cis_count" type="xs:int">
+                    <xs:annotation>
+                        <xs:documentation>Количество кодов в файле</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element name="state" type="xs:string" minOccurs="0">
+                    <xs:annotation>
+                        <xs:documentation>Статус документа (произвольный, для удобства пользователей)</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element name="comment" type="xs:string" minOccurs="0">
+                    <xs:annotation>
+                        <xs:documentation>Человеко-читаемый комментарий (произвольный, для удобства пользователей)
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element name="product_group" type="product_group_type" minOccurs="0">
+                    <xs:annotation>
+                        <xs:documentation>Товарная группа
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element name="md5" type="xs:string" minOccurs="0">
+                    <xs:annotation>
+                        <xs:documentation>Контрольная сумма файла с кодами (опционально, для проверки целостности)
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element name="aggregation_code" type="xs:string" minOccurs="0">
+                    <xs:annotation>
+                        <xs:documentation>Код агрегата. Обязателен к заполнению при codes_type = AGGREGATE
+                            Если это набор, то при указании полного кода ГС разделители должны быть заменены на `
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element name="additional_info" type="xs:string" minOccurs="0">
+                    <xs:annotation>
+                        <xs:documentation>Дополнительная информация, для возможности расширения формата
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element name="gtin_additional_info" type="gtin_additional_info_type" minOccurs="0"
+                            maxOccurs="unbounded">
+                    <xs:annotation>
+                        <xs:documentation>Дополнительная информация по конкретным gtin
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element name="codes_type" type="codes_type_type">
+                    <xs:annotation>
+                        <xs:documentation>Тип кодов в файле</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element name="creation_date" type="xs:dateTime">
+                    <xs:annotation>
+                        <xs:documentation>Дата создания файла в формате yyyy-MM-dd'T'HH:mm:ss'Z'</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element name="modification_date" type="xs:dateTime">
+                    <xs:annotation>
+                        <xs:documentation>Дата последнего изменения метаданных в формате yyyy-MM-dd'T'HH:mm:ss'Z'
+                        </xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element name="security" type="security_type" minOccurs="0">
+                    <xs:annotation>
+                        <xs:documentation>Информация для защиты данных с кодами маркировки</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+            </xs:sequence>
+            <xs:attribute name="version" type="xs:decimal" use="required" fixed="1"/>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:simpleType name="codes_type_type">
+        <xs:annotation>
+            <xs:documentation>Типы кодов в файле
+                KM - коды маркировки с криптохвостами. Можно использовать для печати
+                KI - коды идентификации. Gtin + serial. Нельзя использовать для печати
+                AGGREGATE - агрегат. При выборе этого типа обязателен к заполнению код агрегата. Коды с криптохвостами
+                ORDER - Заказ на получение кодов. Для этого типа допускается пустое значение поля file_name.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="KM"/>
+            <xs:enumeration value="KI"/>
+            <xs:enumeration value="AGGREGATE"/>
+            <xs:enumeration value="ORDER"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="security_type">
+        <xs:sequence>
+            <xs:element name="encrypted" type="xs:boolean" default="false">
+                <xs:annotation>
+                    <xs:documentation>Признак применения шифрования. Если true, то значит файл с кодами зашифрован
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="symmetric_key" minOccurs="0" type="symmetric_key_type">
+                <xs:annotation>
+                    <xs:documentation>Ключ для симметричного шифрования и дешифрования данных (алгоритм AES)
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="symmetric_key_type">
+        <xs:sequence>
+            <xs:element name="password" type="xs:string" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>Пароль для шифрования и дешифрования
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="salt" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>Модификатор входа хэш-функции (соль)
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="iteration_count" type="xs:int">
+                <xs:annotation>
+                    <xs:documentation>Количество циклов шифрования
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="key_length" type="key_length_type">
+                <xs:annotation>
+                    <xs:documentation>Длина ключа шифрования
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="gtin_additional_info_type">
+        <xs:sequence>
+            <xs:element name="gtin" type="gtin_type" minOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>gtin
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="additional_info" type="xs:string" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>Дополнительная информация по гтин
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="EAN" type="ean_type" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>EAN код товара
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="buyer_item_code" type="string35_type" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>Код товара у покупателя
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="supplier_item_code" type="string38_type" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>Код товара у продавца
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="item_description" type="string100_type" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>Описание товара
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="ordered_quantity" type="threePlacesDecimal" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>Заказанное количество. Дробное (рациональное) число, с 3 знаками после запятой
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="quantity_despatched" type="threePlacesDecimal" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>Полученное количество. Дробное (рациональное) число, с 3 знаками после запятой
+                    </xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="product_group_type">
+        <xs:annotation>
+            <xs:documentation>Справочник товарных групп
+                "Предметы одежды, белье постельное, столовое, туалетное и кухонное - CLOTHES",
+                "Обувные товары - SHOES",
+                "Духи и туалетная вода - PERFUMERY",
+                "Шины и покрышки пневматические резиновые новые - TIRES",
+                "Фотокамеры (кроме кинокамер), фотовспышки и лампы-вспышки - ELECTRONICS",
+                "Молочная продукция - MILK",
+                "Велосипеды и велосипедные рамы - BICYCLE",
+                "Кресла-коляски - WHEELCHAIRS",
+                "Альтернативная табачная продукция - OTP",
+                "Вода - WATER",
+                "Лекарственные препараты для медицинского применения" - "PHARMA",
+                "Табак" - "TOBACCO"
+                "Алкоголь (Казахстан)" - "ALCOHOL"
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="CLOTHES"/>
+            <xs:enumeration value="SHOES"/>
+            <xs:enumeration value="PERFUMERY"/>
+            <xs:enumeration value="TIRES"/>
+            <xs:enumeration value="ELECTRONICS"/>
+            <xs:enumeration value="MILK"/>
+            <xs:enumeration value="BICYCLE"/>
+            <xs:enumeration value="WHEELCHAIRS"/>
+            <xs:enumeration value="OTP"/>
+            <xs:enumeration value="WATER"/>
+            <xs:enumeration value="PHARMA"/>
+            <xs:enumeration value="TOBACCO"/>
+            <xs:enumeration value="ALCOHOL"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="key_length_type">
+        <xs:annotation>
+            <xs:documentation>Длина ключа шифрования
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:int">
+            <xs:enumeration value="128"/>
+            <xs:enumeration value="256"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="gtin_type">
+        <xs:annotation>
+            <xs:documentation>GTIN</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:length value="14"/>
+            <xs:pattern value="[0-9]{14}"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="ean_type">
+        <xs:annotation>
+            <xs:documentation>EAN</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:length value="14"/>
+            <xs:pattern value="[0-9]{14}"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="string35_type">
+        <xs:annotation>
+            <xs:documentation>Текстовое значение не более 35 символов</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+            <xs:maxLength value="35"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="string38_type">
+        <xs:annotation>
+            <xs:documentation>Текстовое значение не более 38 символов</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+            <xs:maxLength value="38"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="string100_type">
+        <xs:annotation>
+            <xs:documentation>Текстовое значение не более 100 символов</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+            <xs:maxLength value="100"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="threePlacesDecimal" >
+        <xs:restriction base="xs:decimal">
+            <xs:fractionDigits fixed="true" value="3" />
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

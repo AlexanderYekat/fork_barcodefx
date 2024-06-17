@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:include schemaLocation="LP_base_types.xsd"/>
+	<xs:element name="km_cancellation">
+	<xs:complexType>
+		<xs:annotation>
+			<xs:documentation>Списание кодов маркировки</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="trade_participant_inn" type="inn_type">
+				<xs:annotation>
+					<xs:documentation>ИНН участника оборота</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="cancellation_reason" type="km_cancellation_reason_type" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Причина списания кода маркировки
+					Испорчен - KM_SPOILED
+					Утерян - KM_LOST
+					Уничтожен - KM_DESTROYED</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="cancellation_document_date" type="date_type">
+				<xs:annotation>
+					<xs:documentation>Дата документа, подтверждающего списание</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="cancellation_document_number" type="string255_type">
+				<xs:annotation>
+					<xs:documentation>Номер документа, подтверждающего списание</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="km_list">
+				<xs:annotation>
+					<xs:documentation>Параметры кодов маркировки</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="km" maxOccurs="unbounded">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="kit" type="kit_type" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>КИТ</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="kitu" type="kitu_type" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>КИТУ</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="cancellation_reason" type="km_cancellation_reason_type" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>Причина списания кода маркировки
+												Испорчен - KM_SPOILED
+												Утерян - KM_LOST
+												Уничтожен - KM_DESTROYED</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+		<xs:attribute name="action_id" type="xs:int" use="required" fixed="14"/>
+		<xs:attribute name="version" type="xs:int" use="required" fixed="2"/>
+	</xs:complexType>
+	</xs:element>
+</xs:schema>

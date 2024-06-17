@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<GridPane alignment="CENTER" hgap="10.0" prefHeight="599.0" prefWidth="452.9998779296875" vgap="10.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="site.barsukov.barcodefx.SuzController">
+    <children>
+        <Pane prefHeight="650.0" prefWidth="459.0" GridPane.columnIndex="0" GridPane.rowIndex="0">
+         <children>
+            <TableView fx:id="ordersTableView" layoutX="26.0" layoutY="97.0" prefHeight="389.0" prefWidth="403.0" />
+            <Button fx:id="refreshButton" layoutX="216.0" layoutY="544.0" mnemonicParsing="false" onAction="#refreshAction" text="Обновить" />
+            <Button fx:id="downloadButton" disable="true" layoutX="333.0" layoutY="544.0" mnemonicParsing="false" onAction="#downloadAction" text="Скачать" />
+            <Button layoutX="26.0" layoutY="544.0" mnemonicParsing="false" onAction="#chooseFolderAction" text="Папка для скачивания" />
+            <Label fx:id="folderLabel" layoutX="26.0" layoutY="509.0" text="Папка не выбрана" />
+            <TextField fx:id="omsId" layoutX="26.0" layoutY="24.0" prefHeight="27.0" prefWidth="176.0" promptText="OmsId" />
+            <TextField fx:id="clientId" layoutX="237.0" layoutY="24.0" prefHeight="27.0" prefWidth="192.0" promptText="ClientToken" />
+            <Label layoutX="26.0" layoutY="65.0" text="Количество кодов:" />
+            <Label fx:id="totalCodeCountLabel" layoutX="160.0" layoutY="65.0" prefHeight="17.0" prefWidth="50.0" text="0/0" />
+            <Label layoutX="239.0" layoutY="65.0" text="Количество заказов:" />
+            <Label fx:id="totalOrdersCountLabel" layoutX="376.0" layoutY="65.0" text="0" />
+         </children>
+        </Pane>
+    </children>
+    <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+    </rowConstraints>
+</GridPane>

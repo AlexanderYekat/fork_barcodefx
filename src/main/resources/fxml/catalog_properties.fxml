@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<GridPane alignment="CENTER" hgap="10.0" prefHeight="267.0" prefWidth="445.0" vgap="10.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="site.barsukov.barcodefx.controllers.CatalogController">
+    <children>
+      <AnchorPane>
+         <children>
+            <Label layoutX="24.0" layoutY="16.0" text="В качестве каталога используется файл выгрузки из ГС1" AnchorPane.leftAnchor="24.0" AnchorPane.topAnchor="16.0" />
+            <Label layoutX="24.0" layoutY="30.0" prefHeight="68.0" prefWidth="389.0" text="Укажите путь к файлу выгрузки из ГС1. Программа будет брать из него инфомрацию для шаблонов этикеток и заполнения некоторых документов" wrapText="true" AnchorPane.leftAnchor="24.0" AnchorPane.topAnchor="30.0" />
+            <Label layoutX="24.0" layoutY="95.0" prefHeight="41.0" prefWidth="382.0" text="При работе с большим количеством записей в каталоге программа может работать несколько медленнее" wrapText="true" AnchorPane.leftAnchor="24.0" AnchorPane.topAnchor="95.0" />
+            <Button layoutX="24.0" layoutY="173.0" mnemonicParsing="false" onAction="#chooseFileButtonAction" text="Выбрать файл" AnchorPane.bottomAnchor="67.0" AnchorPane.leftAnchor="24.0" />
+            <Label fx:id="fileLabel" layoutX="24.0" layoutY="143.0" prefHeight="17.0" prefWidth="404.0" text="Файл не выбран" AnchorPane.bottomAnchor="107.0" AnchorPane.leftAnchor="24.0" />
+            <CheckBox fx:id="useCatalog" layoutX="191.0" layoutY="178.0" mnemonicParsing="false" text="Использовать каталог" AnchorPane.bottomAnchor="71.0" AnchorPane.rightAnchor="87.0" />
+            <Button layoutX="105.0" layoutY="221.0" mnemonicParsing="false" onAction="#okButtonAction" text="Ок" AnchorPane.bottomAnchor="19.0" AnchorPane.leftAnchor="105.0" />
+            <Button layoutX="242.0" layoutY="221.0" mnemonicParsing="false" onAction="#cancelButtonAction" text="Отмена" AnchorPane.bottomAnchor="19.0" AnchorPane.rightAnchor="135.0" />
+         </children>
+      </AnchorPane>
+    </children>
+    <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+    </rowConstraints>
+</GridPane>

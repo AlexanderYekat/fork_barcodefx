@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SplitMenuButton?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<GridPane alignment="CENTER" hgap="10.0" prefHeight="694.0" prefWidth="532.0" vgap="10.0" xmlns="http://javafx.com/javafx/11.0.11" xmlns:fx="http://javafx.com/fxml/1" fx:controller="site.barsukov.barcodefx.controllers.ScannerController">
+    <children>
+      <AnchorPane prefHeight="649.0" prefWidth="453.0" GridPane.rowIndex="1">
+         <children>
+            <ListView fx:id="textList" editable="true" layoutX="22.0" layoutY="74.0" prefHeight="331.0" prefWidth="414.0" AnchorPane.bottomAnchor="236.0" AnchorPane.leftAnchor="22.0" AnchorPane.rightAnchor="17.0" AnchorPane.topAnchor="74.0" />
+            <TextArea fx:id="textInputField" layoutX="22.0" layoutY="515.0" prefHeight="27.0" prefWidth="407.0" promptText="Просканируйте код и нажмите enter" AnchorPane.bottomAnchor="99.0" AnchorPane.leftAnchor="22.0" AnchorPane.rightAnchor="24.0">
+               <tooltip>
+                  <Tooltip text="В HID режиме программа игнорирует GS разделители и проставляет их автоматически" />
+               </tooltip></TextArea>
+            <Button fx:id="deleteDoublesButton" layoutX="22.0" layoutY="14.0" mnemonicParsing="false" onAction="#deleteDoubles" text="Удалить дубли" AnchorPane.leftAnchor="22.0" AnchorPane.topAnchor="14.0" />
+            <Button fx:id="deleteErrorsButton" layoutX="162.0" layoutY="14.0" mnemonicParsing="false" onAction="#deleteErrors" text="Удалить ошибочные" AnchorPane.leftAnchor="162.0" AnchorPane.rightAnchor="143.0" AnchorPane.topAnchor="14.0" />
+            <ToggleButton fx:id="soundButton" layoutX="339.0" layoutY="14.0" mnemonicParsing="false" onAction="#soundButtonAction" prefHeight="27.0" prefWidth="90.0" text="Звук ВКЛ" AnchorPane.rightAnchor="24.0" AnchorPane.topAnchor="14.0" />
+            <Label layoutX="22.0" layoutY="52.0" text="Просканировано:" />
+            <Label fx:id="scannedNumberCountLabel" layoutX="141.0" layoutY="52.0" prefHeight="17.0" prefWidth="41.0" text="0" />
+            <Label layoutX="209.0" layoutY="52.0" text="Ошибочных:" />
+            <Label fx:id="scannedErrorsNumber" layoutX="297.0" layoutY="52.0" prefHeight="17.0" prefWidth="47.0" text="0" />
+            <Button layoutX="22.0" layoutY="592.0" mnemonicParsing="false" onAction="#deleteSelectedItem" text="Удалить" AnchorPane.bottomAnchor="22.0" AnchorPane.leftAnchor="22.0" />
+            <CheckBox fx:id="alternativeSeparatorCheckBox" layoutX="73.0" layoutY="560.0" mnemonicParsing="false" onAction="#alternativeSeparatorAction" text="Разделитель" AnchorPane.bottomAnchor="63.0" AnchorPane.leftAnchor="73.0">
+               <tooltip>
+                  <Tooltip text="Использовать альтернативный разделитель, вместо GS. Будет преобразован в GS." />
+               </tooltip>
+            </CheckBox>
+            <TextField fx:id="alternativeSeparator" disable="true" layoutX="25.0" layoutY="555.0" prefHeight="27.0" prefWidth="30.0" text="`" AnchorPane.bottomAnchor="59.0" AnchorPane.leftAnchor="25.0" />
+            <ToggleButton fx:id="comPotConnectionButton" layoutX="331.0" layoutY="422.0" mnemonicParsing="false" onAction="#comPortConnectAction" text="Подключить" AnchorPane.bottomAnchor="192.0" AnchorPane.rightAnchor="25.0" />
+            <ComboBox fx:id="port" layoutX="59.0" layoutY="423.0" prefHeight="27.0" prefWidth="90.0" AnchorPane.bottomAnchor="191.0" AnchorPane.leftAnchor="59.0">
+                <tooltip>
+                    <Tooltip text="Номер порта" />
+                </tooltip>
+            </ComboBox>
+            <ComboBox fx:id="bit" layoutX="59.0" layoutY="466.0" prefHeight="27.0" prefWidth="90.0" AnchorPane.bottomAnchor="148.0" AnchorPane.leftAnchor="59.0">
+                <tooltip>
+                    <Tooltip text="Бит" />
+                </tooltip>
+            </ComboBox>
+            <ComboBox fx:id="stopBit" layoutX="199.0" layoutY="422.0" prefHeight="27.0" prefWidth="90.0" AnchorPane.bottomAnchor="192.0" AnchorPane.rightAnchor="164.0">
+                <tooltip>
+                    <Tooltip text="Стоп бит" />
+                </tooltip>
+            </ComboBox>
+            <ComboBox fx:id="speed" layoutX="199.0" layoutY="465.0" prefHeight="27.0" prefWidth="90.0" AnchorPane.bottomAnchor="149.0" AnchorPane.rightAnchor="164.0">
+                <tooltip>
+                    <Tooltip text="Скорость" />
+                </tooltip>
+            </ComboBox>
+            <Label layoutX="21.0" layoutY="470.0" text="Бит" AnchorPane.bottomAnchor="154.0" AnchorPane.leftAnchor="21.0" />
+            <Label layoutX="21.0" layoutY="427.0" text="Порт" AnchorPane.bottomAnchor="197.0" AnchorPane.leftAnchor="21.0" />
+            <Label layoutX="137.0" layoutY="427.0" text="Стоп бит" AnchorPane.bottomAnchor="197.0" AnchorPane.rightAnchor="258.0" />
+            <Label layoutX="136.0" layoutY="470.0" text="Скорость" AnchorPane.bottomAnchor="154.0" AnchorPane.rightAnchor="256.0" />
+            <ComboBox fx:id="category" layoutX="352.0" layoutY="599.0" prefHeight="27.0" prefWidth="156.0" AnchorPane.bottomAnchor="58.0" AnchorPane.rightAnchor="24.0" />
+            <Label layoutX="264.0" layoutY="604.0" text="Категория" AnchorPane.bottomAnchor="63.0" AnchorPane.rightAnchor="201.0" />
+            <SplitMenuButton fx:id="saveFileButton" layoutX="354.0" layoutY="635.0" mnemonicParsing="false" onAction="#saveFile" text="Сохранить в файл" AnchorPane.bottomAnchor="22.0" AnchorPane.rightAnchor="26.0">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#savePickingOrderButtonAction" text="Сохранить пикинг ордер" />
+              </items>
+            </SplitMenuButton>
+         </children>
+      </AnchorPane>
+    </children>
+    <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints />
+      <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+    </rowConstraints>
+</GridPane>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<GridPane alignment="CENTER" hgap="10.0" prefHeight="421.0" prefWidth="950.0" vgap="10.0" xmlns="http://javafx.com/javafx/11.0.11" xmlns:fx="http://javafx.com/fxml/1" fx:controller="site.barsukov.barcodefx.controllers.WaterLicenseController">
+    <children>
+      <AnchorPane prefHeight="267.0" prefWidth="676.0">
+         <children>
+            <TableView fx:id="licensesList" layoutX="88.0" layoutY="132.0" prefHeight="187.0" prefWidth="627.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="125.0" AnchorPane.topAnchor="90.0">
+               <columns>
+                  <TableColumn editable="false" prefWidth="195.0" text="Номер лицензии" />
+                  <TableColumn editable="false" prefWidth="197.0" text="Дата выдачи лицензии" />
+               </columns></TableView>
+            <TextField fx:id="licenseNumber" layoutX="88.0" layoutY="68.0" prefHeight="25.0" prefWidth="213.0" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="44.0" />
+            <Button layoutX="648.0" layoutY="68.0" mnemonicParsing="false" onAction="#addLicenseButtonAction" text="Добавить" AnchorPane.leftAnchor="500.0" AnchorPane.topAnchor="44.0" />
+            <Button layoutX="767.0" layoutY="211.0" mnemonicParsing="false" onAction="#deleteLicenseButtonAction" text="Удалить" AnchorPane.rightAnchor="40.0" />
+            <DatePicker fx:id="licenseDate" layoutX="377.0" layoutY="68.0" AnchorPane.leftAnchor="300.0" AnchorPane.topAnchor="44.0" />
+            <Label layoutX="88.0" layoutY="41.0" text="Номер лицензии" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0" />
+            <Label layoutX="377.0" layoutY="41.0" text="Дата выдачи лицензии" AnchorPane.leftAnchor="300.0" AnchorPane.topAnchor="20.0" />
+         </children>
+      </AnchorPane>
+    </children>
+    <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+    </rowConstraints>
+</GridPane>

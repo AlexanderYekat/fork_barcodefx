@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<GridPane alignment="CENTER" hgap="10.0" prefHeight="227.0" prefWidth="375.0" vgap="10.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="site.barsukov.barcodefx.controllers.PickingServersChooserController">
+    <children>
+      <AnchorPane prefHeight="392.0" prefWidth="409.0">
+         <children>
+            <ComboBox fx:id="serversListCB" layoutX="31.0" layoutY="63.0" prefHeight="27.0" prefWidth="311.0" />
+            <Label layoutX="31.0" layoutY="27.0" text="Выберите сервер для отправки пикинг ордеров" />
+            <Label layoutX="31.0" layoutY="114.0" text="Количество ордеров для отправки:" />
+            <Button layoutX="144.0" layoutY="163.0" mnemonicParsing="false" onAction="#sendOrdersButtonAction" text="Отправить" />
+            <Label fx:id="pickingOrdersCount" layoutX="265.0" layoutY="114.0" prefHeight="17.0" prefWidth="78.0" text="0" />
+         </children>
+      </AnchorPane>
+    </children>
+    <columnConstraints>
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+    </rowConstraints>
+</GridPane>
